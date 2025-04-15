@@ -1,23 +1,23 @@
 class AnswerModel {
-  final String answer;
-  final bool isCorrect;
+  final String title;
+  final bool isRight;
 
   AnswerModel({
-    required this.answer,
-    this.isCorrect = false,
+    required this.title,
+    this.isRight = false,
   });
 
   factory AnswerModel.fromJson(Map<String, dynamic> json) {
     return AnswerModel(
-      answer: json['answer'] as String,
-      isCorrect: json['isCorrect'] as bool,
+      title: json['answer'] as String,
+      isRight: json['isCorrect'] as bool,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'answer': answer,
-      'isCorrect': isCorrect,
+      'answer': title,
+      'isRight': isRight,
     };
   }
 }

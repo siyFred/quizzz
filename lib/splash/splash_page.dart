@@ -1,31 +1,23 @@
-import 'package:quizzz/core/core.dart';
-import 'package:quizzz/home/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:quizzz/core/app_gradients.dart';
+import 'package:quizzz/core/app_images.dart';
+import 'package:quizzz/home/home_page.dart';
 
-class SplashPage extends StatefulWidget {
+class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
 
   @override
-  _SplashPageState createState() => _SplashPageState();
-}
-
-class _SplashPageState extends State<SplashPage> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(Duration(seconds: 2)).then((_) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) =>HomePage()),
-      );
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration(seconds: 2)).then((_) => 
+      Navigator.pushReplacement(
+        context, 
+        MaterialPageRoute(builder: (context) => HomePage())
+      )
+    );
+    
     return Scaffold(
       body: Container(
-        decoration:BoxDecoration(
+        decoration: BoxDecoration(
           gradient: AppGradients.linear,
         ),
         child: Center(
