@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quizzz/home/widgets/appbar/app_bar_widget.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   _HomePageState createState() => _HomePageState();

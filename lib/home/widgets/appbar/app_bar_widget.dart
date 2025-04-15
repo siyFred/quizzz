@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quizzz/core/core.dart';
 
 class AppBarWidget extends PreferredSize {
-  AppBarWidget() : super(
+  AppBarWidget({super.key}) : super(
     preferredSize: Size.fromHeight(250),
     child: Container(
       height: 250,
