@@ -28,8 +28,8 @@ class ResultsPage extends StatelessWidget {
             gradient: AppGradients.linear,
           ),
         ),
-        automaticallyImplyLeading: false, // Impede a exibição da seta de voltar
-        leading: Container(), // Adiciona um container vazio no lugar da seta
+        automaticallyImplyLeading: false,
+        leading: Container(),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -91,11 +91,9 @@ class ResultsPage extends StatelessWidget {
             SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomePage(),
-                  ),
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                  (route) => false,
                 );
               },
               style: ElevatedButton.styleFrom(

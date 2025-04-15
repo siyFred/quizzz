@@ -7,8 +7,8 @@ class AnswerWidget extends StatelessWidget {
   final AnswerModel answer;
   final bool isSelected;
   final VoidCallback onTap;
-  final bool disabled; // Se verdadeiro, o botão não pode mais ser pressionado
-  final bool showCorrect; // Se verdadeiro, mostra a resposta correta
+  final bool disabled;
+  final bool showCorrect;
 
   const AnswerWidget({
     super.key,
@@ -24,7 +24,6 @@ class AnswerWidget extends StatelessWidget {
   Color get _selectedColorCardRight => answer.isRight ? AppColors.lightGreen : AppColors.lightRed;
   TextStyle get _selectedTextStyleRight => answer.isRight ? AppTextStyles.bodyDarkGreen : AppTextStyles.bodyDarkRed;
 
-  // Destacar resposta correta mesmo quando não selecionada
   Color get _borderColor {
     if (isSelected) {
       return _selectedBorderRight;
@@ -87,8 +86,6 @@ class AnswerWidget extends StatelessWidget {
                 style: _textStyle,
               ),
             ),
-            // Exibir ícone de correto/incorreto para respostas selecionadas
-            // ou para destacar a resposta correta após seleção
             if (isSelected || (showCorrect && answer.isRight))
               Container(
                 width: 24,

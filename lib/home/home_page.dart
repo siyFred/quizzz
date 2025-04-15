@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quizzz/core/app_colors.dart';
 import 'package:quizzz/core/app_gradients.dart';
 import 'package:quizzz/core/app_text_styles.dart';
 import 'package:quizzz/home/widgets/quiz_card/quiz_card_widget.dart';
@@ -33,7 +32,7 @@ class HomePage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => QuizPage(
-                      quiz: _getQuiz(),
+                      quiz: _getQuizConhecimentosGerais(),
                     ),
                   ),
                 );
@@ -42,13 +41,29 @@ class HomePage extends StatelessWidget {
                 title: 'Quiz de Conhecimentos Gerais',
               ),
             ),
+            SizedBox(height: 24),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => QuizPage(
+                      quiz: _getQuizLogicaProgramacao(),
+                    ),
+                  ),
+                );
+              },
+              child: QuizCardWidget(
+                title: 'Quiz de Lógica de Programação',
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
-  QuizModel _getQuiz() {
+  QuizModel _getQuizConhecimentosGerais() {
     return QuizModel(
       title: 'Quiz de Conhecimentos Gerais',
       image: 'assets/images/logo.png',
@@ -78,6 +93,42 @@ class HomePage extends StatelessWidget {
             AnswerModel(title: 'Girafa'),
             AnswerModel(title: 'Baleia Azul', isRight: true),
             AnswerModel(title: 'Hipopótamo'),
+          ],
+        ),
+      ],
+    );
+  }
+  
+  QuizModel _getQuizLogicaProgramacao() {
+    return QuizModel(
+      title: 'Quiz de Lógica de Programação',
+      image: 'assets/images/logo.png',
+      questions: [
+        QuestionModel(
+          title: 'O que é um algoritmo?',
+          answers: [
+            AnswerModel(title: 'Um tipo de linguagem de programação'),
+            AnswerModel(title: 'Uma sequência finita de passos para resolver um problema', isRight: true),
+            AnswerModel(title: 'Um componente físico do computador'),
+            AnswerModel(title: 'Um software antivírus'),
+          ],
+        ),
+        QuestionModel(
+          title: 'Qual estrutura é usada para repetir um bloco de código várias vezes?',
+          answers: [
+            AnswerModel(title: 'Estrutura condicional'),
+            AnswerModel(title: 'Estrutura de repetição', isRight: true),
+            AnswerModel(title: 'Estrutura sequencial'),
+            AnswerModel(title: 'Estrutura de dados'),
+          ],
+        ),
+        QuestionModel(
+          title: 'Qual destes NÃO é um operador lógico?',
+          answers: [
+            AnswerModel(title: 'AND'),
+            AnswerModel(title: 'OR'),
+            AnswerModel(title: 'NOT'),
+            AnswerModel(title: 'MAYBE', isRight: true),
           ],
         ),
       ],

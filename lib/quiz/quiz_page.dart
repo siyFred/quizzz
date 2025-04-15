@@ -113,7 +113,6 @@ class _QuizPageState extends State<QuizPage> {
                               if (!controller.hasAnswered) {
                                 controller.answerQuestion(answer);
                                 
-                                // Mostrar mensagem de feedback
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
